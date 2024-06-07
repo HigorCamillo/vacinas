@@ -21,6 +21,13 @@ $dados = $res->fetchAll(PDO::FETCH_ASSOC);
 $nome_usu = @$dados[0]['nome'];
 $email_usu = @$dados[0]['email'];
 $cpf_usu = @$dados[0]['cpf'];
+$nome_mae = @$dados[0]['nome_mae'];
+$cartao_sus = @$dados[0]['cartao_sus'];
+$municipio_nascimento = @$dados[0]['municipio_nascimento'];
+$municipio_residencia = @$dados[0]['municipio_residencia'];
+$cor_autodeclarada =@$dados[0]['cor_autodeclarada'];
+$numero_celular = @$dados[0]['numero_celular'];
+$dt_nasc = @$dados[0]['dt_nasc'];
 ?>
 
 <!DOCTYPE html>
@@ -243,47 +250,46 @@ $cpf_usu = @$dados[0]['cpf'];
 
                         <div class="form-group">
                             <label for="data_nascimento">Data de Nascimento</label>
-                            <input type="date" class="form-control" id="dt_nasc" name="dt_nasc">
+                            <input value="<?php echo @$dt_nasc ?>" type="date" class="form-control" id="dt_nasc" name="dt_nasc">
                         </div>
 
                         <div class="form-group">
                             <label for="nome_mae">Nome da Mãe</label>
-                            <input type="text" class="form-control" id="nome_mae" name="nome_mae"
+                            <input value="<?php echo @$nome_mae ?>" type="text" class="form-control" id="nome_mae" name="nome_mae"
                                 placeholder="Nome completo da mãe">
                         </div>
 
                         <div class="form-group">
                             <label for="cartao_sus">Número do Cartão SUS</label>
-                            <input type="text" class="form-control" id="cartao_sus" name="cartao_sus"
+                            <input value="<?php echo @$cartao_sus ?>" type="text" class="form-control" id="cartao_sus" name="cartao_sus"
                                 placeholder="Número do Cartão SUS">
                         </div>
 
                         <div class="form-group">
                             <label for="municipio_nascimento">Município de Nascimento</label>
-                            <input type="text" class="form-control" id="municipio_nascimento"
+                            <input value="<?php echo @$municipio_nascimento ?>" type="text" class="form-control" id="municipio_nascimento"
                                 name="municipio_nascimento" placeholder="Município de nascimento">
                         </div>
 
                         <div class="form-group">
                             <label for="municipio_residencia">Município de Residência</label>
-                            <input type="text" class="form-control" id="municipio_residencia"
+                            <input value="<?php echo @$municipio_residencia?>" type="text" class="form-control" id="municipio_residencia"
                                 name="municipio_residencia" placeholder="Município de residência">
                         </div>
 
                         <div class="form-group">
-                            <label for="cor_autodeclarada">Cor Autodeclarada</label>
-                            <select class="form-control" id="cor_autodeclarada" name="cor_autodeclarada">
-                                <option value="Branca">Branca</option>
-                                <option value="Preta">Preta</option>
-                                <option value="Parda">Parda</option>
-                                <option value="Amarela">Amarela</option>
-                                <option value="Indígena">Indígena</option>
-                            </select>
-                        </div>
-
+                        <label for="cor_autodeclarada">Cor Autodeclarada</label>
+                        <select class="form-control" id="cor_autodeclarada" name="cor_autodeclarada">
+                            <option value="Branca" <?php echo @$cor_autodeclarada == 'Branca' ? 'selected' : ''; ?>>Branca</option>
+                            <option value="Preta" <?php echo @$cor_autodeclarada == 'Preta' ? 'selected' : ''; ?>>Preta</option>
+                            <option value="Parda" <?php echo @$cor_autodeclarada == 'Parda' ? 'selected' : ''; ?>>Parda</option>
+                            <option value="Amarela" <?php echo @$cor_autodeclarada == 'Amarela' ? 'selected' : ''; ?>>Amarela</option>
+                            <option value="Indígena" <?php echo @$cor_autodeclarada == 'Indígena' ? 'selected' : ''; ?>>Indígena</option>
+                        </select>
+                    </div>
                         <div class="form-group">
                             <label for="numero_celular">Número de Celular</label>
-                            <input type="text" class="form-control" id="numero_celular" name="numero_celular"
+                            <input value="<?php echo @$numero_celular ?>" type="text" class="form-control" id="numero_celular" name="numero_celular"
                                 placeholder="Número de celular">
                         </div>
 

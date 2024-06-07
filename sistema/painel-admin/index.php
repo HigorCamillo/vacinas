@@ -147,17 +147,7 @@ $imagem_usu = @$dados[0]['imagem'];
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#ModalPerfil">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-primary"></i>
-                                    Editar Perfil
-                                </a>
-
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#ModalConfig">
-                                    <i class="fas fa-cog fa-sm fa-fw mr-2 text-primary"></i>
-                                    Configurações
-                                </a>
-
-                                <div class="dropdown-divider"></div>
+                        
                                 <a class="dropdown-item" href="../logout.php">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
                                     Sair
@@ -296,62 +286,59 @@ $imagem_usu = @$dados[0]['imagem'];
     </div>
 
     <!-- Modal Vacina -->
-    <div class="modal fade" id="vacinaModal" tabindex="-1" aria-labelledby="vacinaModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="vacinaModalLabel">Aplicação de vacina</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="form-selecionar-vacina" action="estoque/distribuicao_vacina.php" method="POST">
-                        <div class="form-group">
-                            <label for="cpf">CPF do paciente:</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="vacina">Vacina:</label>
-                            <input type="text" class="form-control" id="vacina" name="vacina"
-                                placeholder="Nome da vacina" required>
-                            <div id="vacina-list" class="list-group"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ubs">UBS:</label>
-                            <input type="text" class="form-control" id="ubs" name="ubs" placeholder="Nome da UBS"
-                                required>
-                            <div id="ubs-list" class="list-group"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="lote">Lote:</label>
-                                    <input type="text" class="form-control" id="lote" name="lote"
-                                        placeholder="Número do lote" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="cod_aplicador">Código do Aplicador:</label>
-                                    <input type="text" class="form-control" id="cod_aplicador" name="cod_aplicador"
-                                        placeholder="Código do aplicador" required>
-                                </div>
+<div class="modal fade" id="vacinaModal" tabindex="-1" aria-labelledby="vacinaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vacinaModalLabel">Aplicação de vacina</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-selecionar-vacina" action="estoque/distribuicao_vacina.php" method="POST">
+                    <div class="form-group">
+                        <label for="cpf">CPF do paciente:</label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vacina">Vacina:</label>
+                        <input type="text" class="form-control" id="vacina" name="vacina" placeholder="Nome da vacina" required>
+                        <div id="vacina-list" class="list-group"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ubs">UBS:</label>
+                        <input type="text" class="form-control" id="ubs" name="ubs" placeholder="Nome da UBS" required>
+                        <div id="ubs-list" class="list-group"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="lote">Lote:</label>
+                                <input type="text" class="form-control" id="lote" name="lote" placeholder="Número do lote" readonly required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="data_aplicacao">Data de Aplicação:</label>
-                            <input type="date" class="form-control" id="data_aplicacao" name="data_aplicacao" required>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cod_aplicador">Código do Aplicador:</label>
+                                <input type="text" class="form-control" id="cod_aplicador" name="cod_aplicador" placeholder="Código do aplicador" required>
+                            </div>
                         </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" id="abrirConfirmacaoButton">Cadastrar</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="data_aplicacao">Data de Aplicação:</label>
+                        <input type="date" class="form-control" id="data_aplicacao" name="data_aplicacao" required>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
+
 
 
     <!-- Modal de Confirmação -->

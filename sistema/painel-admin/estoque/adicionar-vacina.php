@@ -1,6 +1,5 @@
 <?php
 require_once("../../../conexao.php"); 
-echo "<script>alert('Entrou no aaaaa.php');</script>";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $vacina = $_POST['vacina'];
@@ -26,4 +25,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-

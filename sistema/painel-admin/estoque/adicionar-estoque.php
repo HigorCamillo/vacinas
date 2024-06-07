@@ -1,8 +1,5 @@
 <?php
-
-require_once("../../../conexao.php"); 
-
-echo "<script>alert('Entrou no adicionar-estoque.php');</script>";
+require_once("../../../conexao.php");
 
 // Verifica se os dados foram enviados via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,23 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ubs = $_POST["ubs"];
 
     // Insere os dados na tabela estoque_vacinas
-    $query = "INSERT INTO estoque_vacinas (vacina, lote, qtd, data_vencimento, ubs) VALUES (:vacina, :lote, :quantidade, :validade, :ubs)";
-    $stmt = $pdo->prepare($query);
+    $query = $pdo->prepare("INSERT INTO estoque_vacinas (vacina, lote, qtd, data_vencimento, ubs) VALUES (:vacina, :lote, :quantidade, :validade, :ubs)");
 
     // Bind dos parâmetros
-    $stmt->bindParam(":vacina", $vacina);
-    $stmt->bindParam(":lote", $lote);
-    $stmt->bindParam(":quantidade", $quantidade);
-    $stmt->bindParam(":validade", $validade);
-    $stmt->bindParam(":ubs", $ubs);
+    $query->bindParam(":vacina", $vacina);
+    $query->bindParam(":lote", $lote);
+    $query->bindParam(":quantidade", $quantidade);
+    $query->bindParam(":validade", $validade);
+    $query->bindParam(":ubs", $ubs);
 
     // Executa a query
-    if ($stmt->execute()) {
+    if ($query->execute()) {
         echo "Salvo com Sucesso!!";
-    } else {
-        echo "Erro ao salvar.";
     }
-} else {
-    echo "Requisição inválida.";
-}
+} 
 ?>

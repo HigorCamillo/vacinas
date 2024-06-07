@@ -6,20 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $anos_minimos = $_POST['anos_minimos'];
     $meses_minimos = $_POST['meses_minimos'];
 
-    // Validação dos dados
-    if (empty($vacina)) {
-        echo "Por favor, preencha o nome da vacina.";
-        exit;
-    }
-    if (empty($anos_minimos) && $anos_minimos !== '0') {
-        echo "Por favor, preencha a idade mínima em anos.";
-        exit;
-    }
-    if (empty($meses_minimos) && $meses_minimos !== '0') {
-        echo "Por favor, preencha a idade mínima em meses.";
-        exit;
-    }
-
     // Atualizar os dados no banco de dados
     $query = $pdo->prepare("UPDATE vacinas SET anos_minimo = :anos_minimos, meses_minimo = :meses_minimos WHERE nome = :nome");
     $query->bindParam(':nome', $vacina);
@@ -27,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query->bindParam(':meses_minimos', $meses_minimos, PDO::PARAM_INT);
 
     if ($query->execute()) {
-        echo "Atualizado com Sucesso!!";
+        echo "Salvo com Sucesso!!";
     } else {
         echo "Erro ao atualizar a vacina.";
     }

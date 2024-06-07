@@ -122,8 +122,6 @@ $vacinasCampanha = count($dados_total);
             </div>
         </div>
     </div>
-
-    <!-- Pending Requests Card Example -->
     
 </div>
 
